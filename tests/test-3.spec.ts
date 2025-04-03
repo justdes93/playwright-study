@@ -1,0 +1,35 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://ilarionhalushka.github.io/jekyll-ecommerce-demo/');
+  await page.getByRole('navigation').getByRole('link', { name: 'Our Story' }).click();
+  await page.getByRole('heading', { name: 'Animal' }).click();
+  await page.getByRole('heading', { name: 'Style' }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Contact' }).click();
+  await page.getByRole('link', { name: 'shopping_cart' }).click();
+  await page.getByRole('button', { name: 'Back to store' }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Products' }).click();
+  await page.getByRole('link', { name: 'Gavin the Tiger' }).click();
+  await page.getByRole('button', { name: 'Add to cart' }).click();
+  await page.getByRole('button', { name: 'Increment quantity' }).dblclick();
+  await page.getByLabel('Size').selectOption('XL');
+  await page.getByLabel('Color').selectOption('Blue');
+  await page.getByRole('button', { name: 'Remove item' }).first().click();
+  await page.getByRole('link', { name: 'shopping_cart' }).click();
+  await page.getByLabel('Remove item').click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Products' }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Our Story' }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Products' }).click();
+  await page.getByRole('link', { name: 'Fur', exact: true }).click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Our Story' }).click();
+  await page.getByText('Steph Poco').click();
+  await page.getByRole('navigation').getByRole('link', { name: 'Contact' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).press('ControlOrMeta+d');
+  await page.getByRole('textbox', { name: 'Full Name' }).fill('Des');
+  await page.getByRole('textbox', { name: 'Full Name' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Email Address' }).fill('sedfwe@osdifj');
+  await page.getByRole('textbox', { name: 'Message' }).click();
+  await page.getByRole('textbox', { name: 'Message' }).fill('sdfsew4et');
+  await page.getByRole('button', { name: 'Send Message' }).click();
+});
